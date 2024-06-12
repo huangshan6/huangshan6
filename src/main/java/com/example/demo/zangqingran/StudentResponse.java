@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.zangqingran;
 public class StudentResponse {
     private int studentId;
     private String studentName;
