@@ -18,12 +18,14 @@ public class DemoApplication {
 		ConfigurableEnvironment environment = app.getEnvironment();
 		String port = environment.getProperty("server.port");
 		String ip = InetAddress.getLocalHost().getHostAddress();
+		String jdbcUrl = environment.getProperty("spring.datasource.url");
 		log.info("\n----------------------------------------------------------\n" +
 						"服务启动!\n" +
 						"IP：{}\n" +
 						"端口：{}\n" +
+						"jdbcUrl：{}\n" +
 						"----------------------------------------------------------",
-				ip, port);
+				ip, port, jdbcUrl);
 	}
 
 }
