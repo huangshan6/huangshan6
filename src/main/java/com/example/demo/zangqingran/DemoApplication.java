@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.zangqingran;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,14 +18,13 @@ public class DemoApplication {
 		ConfigurableEnvironment environment = app.getEnvironment();
 		String port = environment.getProperty("server.port");
 		String ip = InetAddress.getLocalHost().getHostAddress();
-		String jdbcUrl = environment.getProperty("spring.datasource.url");
 		log.info("\n----------------------------------------------------------\n" +
 						"服务启动!\n" +
 						"IP：{}\n" +
 						"端口：{}\n" +
-						"jdbcUrl：{}\n" +
 						"----------------------------------------------------------",
-				ip, port, jdbcUrl);
+				ip, port);
 	}
 
 }
+
