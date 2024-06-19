@@ -3,6 +3,7 @@ package com.example.demo.liuxinyu.controller;
 import com.example.demo.liuxinyu.entity.Classroom;
 import com.example.demo.liuxinyu.services.ClassroomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +14,13 @@ import java.util.Optional;
 @RequestMapping("/classrooms")
 public class ClassroomController {
 
+    @Autowired
     private final ClassroomService classroomService;
 
-    @Autowired
     public ClassroomController(ClassroomService classroomService) {
         this.classroomService = classroomService;
     }
+
 
     // 获取所有班级
     @GetMapping
@@ -28,8 +30,9 @@ public class ClassroomController {
 
     // 根据ID获取班级
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Classroom>> getClassroomById(@PathVariable String id) {
-        return ResponseEntity.ok(classroomService.findById(id));
+    public ResponseEntity<?> getClassroomById(@PathVariable String id) {
+        Classroom classroom = classroomService.findById(id).get();
+        return ResponseEntity.ok(classroom);
     }
 
     // 创建新班级
@@ -47,8 +50,12 @@ public class ClassroomController {
 
     // 删除班级
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteClassroom(@PathVariable String id) {
-        classroomService.deleteById(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<?> deleteClassroom(@PathVariable String id) {
+        boolean deleted = classroomService.deleteById(id);
+        if (deleted) {
+            return ResponseEntity.ok("Classroom with id " + id + " deleted successfully.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Classroom not found for id: " + id);
+        }
     }
 }

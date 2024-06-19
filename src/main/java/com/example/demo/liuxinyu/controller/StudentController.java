@@ -14,7 +14,11 @@ import java.util.Optional;
 public class StudentController {
 
     @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     // 创建学生
     @PostMapping

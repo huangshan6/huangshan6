@@ -45,8 +45,9 @@ public class ClassroomService {
         return classroomRepository.save(classroom);
     }
 
-    public void deleteById(String id) {
+    public boolean deleteById(String id) {
         classroomRepository.deleteById(id);
+        return true;
     }
 
 }
