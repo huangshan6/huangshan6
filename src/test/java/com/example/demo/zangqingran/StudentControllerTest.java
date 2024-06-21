@@ -25,22 +25,22 @@ public class StudentControllerTest {
 
     @BeforeEach
     public void before() {
-        // 启用mock
-        MockitoAnnotations.openMocks(this);
-        ReflectionTestUtils.setField(studentController, "studentService", studentService);
+//        // 启用mock
+//        MockitoAnnotations.openMocks(this);
+//        ReflectionTestUtils.setField(studentController, "studentService", studentService);
     }
 
     @Test
     public void testGetStudentInfo() {
         // Mock data
-        Student student = new Student(1, "张三", 20, 1);
-        ClassRoom classroom = new ClassRoom(1, "1班", "三年级", "李老师");
-
-        // 模拟行为
-        doReturn(student).when(studentService).getStudent(anyInt());
-        doReturn(classroom).when(studentService).getClassroom(anyInt());
-        // 建议不要使用when().thenReturn()，因为该用法会真实调用一次函数
-//        when(studentService.getStudent(1)).thenReturn(student);
+//        Student student = new Student(1, "张三", 20, 1);
+//        ClassRoom classroom = new ClassRoom(1, "1班", "三年级", "李老师");
+//
+//        // 模拟行为
+//        doReturn(student).when(studentService).getStudent(anyInt());
+//        doReturn(classroom).when(studentService).getClassroom(anyInt());
+//        // 建议不要使用when().thenReturn()，因为该用法会真实调用一次函数
+////        when(studentService.getStudent(1)).thenReturn(student);
 //        when(studentService.getClassroom(1)).thenReturn(classroom);
 
         // 调用函数
