@@ -12,6 +12,7 @@ import java.net.UnknownHostException;
 
 @Slf4j
 @SpringBootApplication
+//@SpringBootApplication(scanBasePackages="com.example.demo.zangqingran.controller")
 @EntityScan(basePackages = "com.example.demo.zangqingran.entity")
 public class DemoApplication {
 
