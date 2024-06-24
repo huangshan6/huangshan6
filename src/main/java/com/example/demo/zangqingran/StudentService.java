@@ -1,4 +1,6 @@
 package com.example.demo.zangqingran;
+import com.example.demo.zangqingran.entity.ClassRoom;
+import com.example.demo.zangqingran.entity.Student;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,8 +11,8 @@ public class StudentService {
         return new Student(id, "张三", 20, 1);
     }
 
-    public Classroom getClassroom(int classId) {
+    public ClassRoom getClassroom(int classId) {
         // Mock data, replace with actual database call
-        return new Classroom(1, "1班", "三年级", "李老师");
+        return new ClassRoom(1, "1班", "三年级", "李老师");
     }
 }
